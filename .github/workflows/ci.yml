@@ -41,9 +41,10 @@ jobs:
 
       - name: Run unit test
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: cartdb
+          CORE_DB_URL: jdbc:postgresql://localhost:5432/cartdb
+          CORE_DB_USERNAME: postgres
+          CORE_DB_PW: postgres
+          CART_SERVICE_PORT: 8080
         run: ./gradlew test
 
       - name: Build jar
